@@ -63,9 +63,10 @@ class User extends Authenticatable
             ->orWhere('user_id', $this->id)
             ->latest()
             ->get();
-//        if($tweets === null) {
-//            return [];
-//        }
+
+        if($tweets === null) {
+            return [];
+        }
 
         return $tweets;
 
