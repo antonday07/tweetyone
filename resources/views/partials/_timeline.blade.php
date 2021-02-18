@@ -6,6 +6,6 @@
     @endforelse
 
     <div class="mt-5">
-            {{$tweets->links('pagination::tailwind')}}
+{{--            {{$tweets->links('pagination::tailwind')}}--}}
     </div>
 </div>
