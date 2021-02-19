@@ -2,6 +2,7 @@
 
 //DB::listen(function ($query) { var_dump($query->sql, $query->bindings);}); simple vardump query
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
