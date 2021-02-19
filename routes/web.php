@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/profiles/{user:username}', 'ProfileController@show')->name('profile');
 });
 
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 
 
 Auth::routes();
