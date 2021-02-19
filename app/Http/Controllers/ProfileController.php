@@ -44,6 +44,7 @@ class ProfileController extends Controller
 
         if (\request('banner')) {
             $attributes['banner'] = \request('banner')->store('banners');
+
         }
         if (\request('avatar')) {
             $attributes['avatar'] = \request('avatar')->store('avatars');

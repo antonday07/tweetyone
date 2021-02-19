@@ -17,7 +17,7 @@ trait Likeable
 //            Select tweet_id, SUM(liked) as Likes, SUM(! liked) as Dislikes from likes GROUP BY tweet_id
 //) Likes on likes.tweet_id = tweets.id
         $query->leftJoinSub(
-            'select tweet_id, SUM(liked) as likes, SUM(not liked) as dislikes from likes GROUP BY tweet_id',
+            'select tweet_id, SUM(liked::int) as likes, SUM(not liked::int) as dislikes from likes GROUP BY tweet_id',
             'likes',
                 'likes.tweet_id',
             'tweets.id'

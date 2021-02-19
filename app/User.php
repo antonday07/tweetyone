@@ -6,6 +6,7 @@ use App\Traits\Followable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -59,15 +60,12 @@ class User extends Authenticatable
         // as well as the tweets of everyone
         // they follow.. in descending order by date
         $friends = $this->follows()->pluck('id');
+
         $tweets = Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
             ->withLikes()
             ->latest()
             ->get();
-
-        if($tweets === null) {
-            return [];
-        }
 
         return $tweets;
 
